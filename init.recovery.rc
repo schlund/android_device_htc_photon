@@ -30,19 +30,7 @@ on boot
 service ueventd /sbin/ueventd
     critical
 
-service choice_fn /sbin/choice_fn
-    oneshot
-
 service recovery /sbin/recovery
-    disabled
-
-service power_test /sbin/power_test
-    disabled
-    oneshot
-
-service offmode_charging /sbin/offmode_charging
-
-service detect_key /sbin/detect_key
 
 service adbd /sbin/adbd recovery
     disabled

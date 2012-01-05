@@ -30,6 +30,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libhtc_ril_wrapper.so \
+	rild.libargs=-d /dev/smd0 nand_init \
     ro.ril.enable.dtm=1 \
     ro.ril.hsdpa.category=8 \
     ro.ril.hsupa.category=5 \

@@ -67,9 +67,9 @@ on init
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
 # performance tweaks for flash
-	write /sys/block/mtdblock3/bdi/read_ahead_kb 4
 	write /sys/block/mtdblock4/bdi/read_ahead_kb 4
 	write /sys/block/mtdblock5/bdi/read_ahead_kb 4
+	write /sys/block/mtdblock6/bdi/read_ahead_kb 4
    
 # WINCE Audience
 	chmod 777 /dev/htc_acoustic_wince
@@ -130,7 +130,7 @@ on property:service.ser2net.enable=1
 on property:service.ser2net.enable=0
     stop srv_ser2net
 
-service hciattach /system/bin/brcm_patchram_plus --enable_hci \
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
     --baudrate 3000000 --patchram /etc/firmware/bcm4329.hcd /dev/ttyHS0
     user bluetooth
     group bluetooth net_bt_admin
