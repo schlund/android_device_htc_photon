@@ -28,59 +28,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/photon/init.photon.rc:root/init.photon.rc
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/lib/libhtc_ril_wrapper.so \
-	rild.libargs=-d /dev/smd0 nand_init \
-    ro.ril.enable.dtm=1 \
-    ro.ril.hsdpa.category=8 \
-    ro.ril.hsupa.category=5 \
-    ro.ril.disable.fd.plmn.prefix=23402,23410,23411 \
-    ro.ril.def.agps.mode=1 \
-    ro.ril.hsxpa=2 \
-    ro.ril.gprsclass=12 \
-    mobiledata.interfaces=rmnet0,rmnet1,rmnet2,gprs,ppp0 \
-    wifi.interface = eth0 \
-    wifi.supplicant_scan_interval=15 \
-    ro.sf.lcd_density = 160 \
-    ro.opengles.version=131072
-
-# Default network type.
-# 0 => WCDMA preferred.
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=0
-
-# For emmc phone storage
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.phone_storage = 0
-
-
-# This is a 512MB device, so 32mb heapsize
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapsize=32m
-
-## (1) First, the most specific values, i.e. the aspects that are specific to GSM
-
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/photon/photon-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
-PRODUCT_PROPERTY_OVERRIDES += \
-    settings.display.autobacklight=1 \
-    settings.display.brightness=143 \
-    persist.service.mount.playsnd = 0 \
-    ro.com.google.locationfeatures = 1 \
-    ro.setupwizard.mode=OPTIONAL \
-    ro.setupwizard.enable_bypass=1 \
-    ro.media.dec.aud.wma.enabled=1 \
-    ro.media.dec.vid.wmv.enabled=1 \
-    dalvik.vm.dexopt-flags=m=y \
-    net.bt.name=Android \
-    ro.config.sync=yes
-
-# Override /proc/sys/vm/dirty_ratio on UMS
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vold.umsdirtyratio=20
-
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
