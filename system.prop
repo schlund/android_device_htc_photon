@@ -43,6 +43,9 @@ ro.opengles.version=131072
 # Override /proc/sys/vm/dirty_ratio on UMS
 ro.vold.umsdirtyratio=20
 
+# Tell android to use camera libs from liberty
+ro.product.camera=liberty
+
 settings.display.autobacklight=1
 settings.display.brightness=143
 persist.service.mount.playsnd=0
