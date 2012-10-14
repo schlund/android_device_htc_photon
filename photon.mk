@@ -51,13 +51,17 @@ PRODUCT_PACKAGES += \
     librs_jni \
     lights.photon \
     gralloc.msm7k \
-    libOmxCore \
     copybit.msm7k \
     sensors.photon \
     gps.photon \
     com.android.future.usb.accessory \
 	libhtc_ril_wrapper \
 	libhtc_acoustic
+
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    libmm-omxcore \
+    libOmxCore
 
 PRODUCT_COPY_FILES += \
     device/htc/photon/vold.fstab:system/etc/vold.fstab \
